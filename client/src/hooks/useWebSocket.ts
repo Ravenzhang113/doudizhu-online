@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
+import { getWsUrl } from '../utils/api';
 
 type MessageHandler = (data: any) => void;
 
@@ -12,8 +13,7 @@ export function useWebSocket(roomId: string, nickname: string) {
   const connect = useCallback(() => {
     if (!roomId || !nickname) return;
 
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${protocol}//${window.location.host}/api/ws?room=${roomId}`;
+    const wsUrl = getWsUrl(roomId);
 
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;

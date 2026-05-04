@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loadNickname, saveNickname } from '../utils/storage';
+import { getApiUrl } from '../utils/api';
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export default function HomePage() {
   const handleCreate = async () => {
     if (!nickname.trim()) return;
     saveNickname(nickname.trim());
-    const res = await fetch('/api/create-room', { method: 'POST' });
+    const res = await fetch(getApiUrl('/api/create-room'), { method: 'POST' });
     const data = await res.json();
     if (data.roomId) {
       navigate(`/room/${data.roomId}`);
