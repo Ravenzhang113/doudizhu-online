@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "typescript": "^5.4.0",
-    "vitest": "^3.0.0"
+    "vitest": "^3.0.0",
+    "wrangler": "^4.87.0"
   }
 }
