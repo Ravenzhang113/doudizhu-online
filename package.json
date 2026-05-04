@@ -1,0 +1,10 @@
+{
+  "name": "doudizhu-online",
+  "private": true,
+  "workspaces": ["shared", "server", "client"],
+  "scripts": {
+    "test": "npm ws run test",
+    "test:server": "npm --workspace server run test",
+    "test:shared": "npm --workspace shared run test"
+  }
+}
